@@ -7,6 +7,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
+
+
 namespace ASP.NET_core_MVC.Controllers
 {
     public class HomeController : Controller
@@ -31,7 +33,27 @@ namespace ASP.NET_core_MVC.Controllers
 
         public IActionResult Index()
         {
+
+            ViewData["message"] = "This Is MVC Application";
+            string[] names = { "Ajinkya", "Shweta", "Rushika" };
+
+            ViewData["names"] = names;
+
+            List<Employee> emplist = new List<Employee>()
+            { 
+            
+                new Employee{ Id = 1 , Name = "Ajit" , Department= "It" , Salary = 25000},
+                new Employee{ Id = 2 , Name = "Amey" , Department= "It" , Salary = 30000},
+                new Employee{ Id = 3 , Name = "Aniket" , Department= "It" , Salary = 35000}
+
+            };
+
+            ViewData["emplist"] = emplist ;
+
             return View();
+
+
+
         }
 
         public IActionResult Privacy()
